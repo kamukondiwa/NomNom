@@ -2,22 +2,23 @@ A simple windows service that allows for monitoring and consumption of file crea
 
 Step 1: Create a monitor.
 
-<ArrayOfMonitor xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Monitor>
-    <Name>
+<code>
+  &lt;ArrayOfMonitor xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+    &lt;Monitor&gt;
+    &lt;Name&gt;
       Monitor 1
-    </Name>
-    <Source>\\NetworkLocation\Source</Source>
-    <Destination>D:\local\Destination</Destination>
-  </Monitor>
-</ArrayOfMonitor>
+    &lt;/Name&gt;
+    &lt;Source&gt;\\NetworkLocation\Source&lt;/Source&gt;
+    &lt;Destination&gt;D:\local\Destination&lt;/Destination&gt;
+  &lt;/Monitor&gt;
+</code>
 
 Step 2: Add a handler
 
 implement the IFileCreationEventHandler interface.
 
     public interface IFileCreationEventHandler {
-        void Handle(Monitor monitor, Stream fileCreated, string fileName);
+        void Handle(Monitor monitor, Stream fileCreated, string filePath);
     }
 
 Example : 
@@ -29,8 +30,8 @@ Example :
             this.log = log;
         }
 
-        public void Handle(Monitor monitor, Stream fileCreated, string fileName) {
+        public void Handle(Monitor monitor, Stream fileCreated, string filePath) {
             const string messageFormat = "Monitor <{0}> has detected the creation of file <{1}>";
-            this.log.Information(string.Format(messageFormat, monitor.Name, Path.GetFileName(fileName)));
+            this.log.Information(string.Format(messageFormat, monitor.Name, Path.GetFileName(filePath)));
         }
     }

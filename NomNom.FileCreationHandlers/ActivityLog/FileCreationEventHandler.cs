@@ -15,9 +15,9 @@ namespace NomNom.FileCreationHandlers.ActivityLog {
             this.log = log;
         }
 
-        public void Handle(Monitor monitor, Stream fileCreated, string fileName) {
+        public void Handle(Monitor monitor, Stream fileCreated, string filePath) {
             const string messageFormat = "Monitor <{0}> has detected the creation of file <{1}>";
-            this.log.Information(string.Format(messageFormat, monitor.Name, Path.GetFileName(fileName)));
+            this.log.Information(string.Format(messageFormat, monitor.Name, Path.GetFileName(filePath)));
         }
     }
 }

@@ -8,6 +8,6 @@ namespace NomNom.Domain {
     #endregion
 
     public interface IFileCreationEventHandler {
-        void Handle(Monitor monitor, Stream fileCreated, string fileName);
+        void Handle(Monitor monitor, Stream fileCreated, string filePath);
     }
 }

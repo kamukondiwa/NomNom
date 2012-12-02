@@ -2,16 +2,15 @@ A simple windows service that allows for monitoring and consumption of file crea
 
 Step 1: Create a monitor.
 
-<code>
-  &lt;ArrayOfMonitor xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
-    &lt;Monitor&gt;
-    &lt;Name&gt;
+<ArrayOfMonitor xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Monitor>
+    <Name>
       Monitor 1
-    &lt;/Name&gt;
-    &lt;Source&gt;\\NetworkLocation\Source&lt;/Source&gt;
-    &lt;Destination&gt;D:\local\Destination&lt;/Destination&gt;
-  &lt;/Monitor&gt;
-</code>
+    </Name>
+    <Source>\\NetworkLocation\Source</Source>
+    <Destination>D:\local\Destination</Destination>
+  </Monitor>
+</ArrayOfMonitor>
 
 Step 2: Add a handler
 
